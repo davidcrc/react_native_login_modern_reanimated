@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StatusBar, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
@@ -13,6 +13,8 @@ const SignupScreen = () => {
   const navigation = useNavigation<SignupScreenNavigation>();
 
   const handleLogin = () => navigation.push(RouteName.Login);
+
+  const isAndroid = Platform.OS === 'android';
 
   return (
     <View className="bg-white h-full w-full">
@@ -46,19 +48,24 @@ const SignupScreen = () => {
         </View>
 
         {/* form */}
-        {/* <View className="flex items-center mx-6 space-y-4"> */}
-        <ScrollView className="flex mt-28 mx-6 space-y-4" showsVerticalScrollIndicator={false}>
-          <Animated.View entering={FadeInDown.duration(1000).springify()} className="bg-black/5 p-5 rounded-2xl w-full">
-            <TextInput placeholder="User name" placeholderTextColor={'gray'} autoFocus />
+        <View className="flex mt-28 mx-6 space-y-4">
+          <Animated.View
+            entering={FadeInDown.duration(1000).springify()}
+            className={`bg-black/5 ${isAndroid ? 'px-5' : 'p-5'} rounded-2xl w-full`}
+          >
+            <TextInput placeholder="User name" placeholderTextColor={'gray'} />
           </Animated.View>
 
-          <Animated.View entering={FadeInDown.duration(1000).springify()} className="bg-black/5 p-5 rounded-2xl w-full">
-            <TextInput placeholder="Email" placeholderTextColor={'gray'} autoFocus />
+          <Animated.View
+            entering={FadeInDown.duration(1000).springify()}
+            className={`bg-black/5 ${isAndroid ? 'px-5' : 'p-5'} rounded-2xl w-full`}
+          >
+            <TextInput placeholder="Email" placeholderTextColor={'gray'} />
           </Animated.View>
 
           <Animated.View
             entering={FadeInDown.delay(200).duration(1000).springify()}
-            className="bg-black/5 p-5 rounded-2xl w-full mb-3"
+            className={`bg-black/5 ${isAndroid ? 'px-5' : 'p-5'} rounded-2xl w-full mb-3`}
           >
             <TextInput placeholder="Password" placeholderTextColor={'gray'} secureTextEntry />
           </Animated.View>
@@ -78,7 +85,7 @@ const SignupScreen = () => {
               <Text className="text-sky-600">Login</Text>
             </TouchableOpacity>
           </Animated.View>
-        </ScrollView>
+        </View>
       </View>
     </View>
   );
