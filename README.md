@@ -1,4 +1,4 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+Basic Login and SignUp using NativeWind, react-native-reanimated
 
 # Getting Started
 
@@ -45,3 +45,11 @@ yarn ios
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+# TODO:
+
+- Needs fix when select input avoid UI up keboard
+
+![alt text for screen readers](/resources/Screenshot_2023-10-17_1.png 'Screen1')
+
+![alt text for screen readers](/resources/Screenshot_2023-10-17_2.png 'Screen2')
